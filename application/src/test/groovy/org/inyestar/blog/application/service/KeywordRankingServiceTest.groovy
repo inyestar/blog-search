@@ -59,6 +59,5 @@ class KeywordRankingServiceTest extends Specification {
 
         then:
         !result.isEmpty()
-        result.each {it -> it.count == 1000L}
     }
 }

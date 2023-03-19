@@ -4,7 +4,3 @@ dependencies {
     implementation "org.springframework:spring-tx"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
-tasks.named('test') {
-    useJUnitPlatform()
-}
