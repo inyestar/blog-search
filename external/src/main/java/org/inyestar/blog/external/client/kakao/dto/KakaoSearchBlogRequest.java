@@ -1,4 +1,4 @@
-package org.inyestar.blog.external.client.dto;
+package org.inyestar.blog.external.client.kakao.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

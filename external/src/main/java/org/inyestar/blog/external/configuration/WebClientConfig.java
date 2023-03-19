@@ -19,7 +19,7 @@ public class WebClientConfig {
     @Bean
     public WebClient kakaoWebClient() {
         return WebClient.builder()
-            .baseUrl("https://dapi.kakao.com/v2")
+            .baseUrl("https://dapi.kakao.com")
             .defaultHeader(HttpHeaders.AUTHORIZATION, kakaoRestApiKey)
             .build();
     }
@@ -27,7 +27,7 @@ public class WebClientConfig {
     @Bean
     public WebClient naverWebClient() {
         return WebClient.builder()
-            .baseUrl("https://openapi.naver.com/v1")
+            .baseUrl("https://openapi.naver.com")
             .defaultHeader("X-Naver-Client-Id", naverClientId)
             .defaultHeader("X-Naver-Client-Secret", naverClientSecret)
             .build();
