@@ -5,9 +5,11 @@ import org.inyestar.blog.application.port.client.BlogSearchApiClient;
 import org.inyestar.blog.application.service.dto.SearchBlogRequest;
 import org.inyestar.blog.application.service.dto.SearchBlogResponse;
 import org.inyestar.blog.external.client.kakao.KakaoApiWebClient;
+import org.inyestar.blog.external.client.kakao.contants.KakaoSortType;
 import org.inyestar.blog.external.client.kakao.dto.KakaoSearchBlogRequest;
 import org.inyestar.blog.external.client.kakao.dto.KakaoSearchBlogResponse;
 import org.inyestar.blog.external.client.naver.NaverApiWebClient;
+import org.inyestar.blog.external.client.naver.contants.NaverSortType;
 import org.inyestar.blog.external.client.naver.dto.NaverSearchBlogRequest;
 import org.inyestar.blog.external.client.naver.dto.NaverSearchBlogResponse;
 import org.springframework.stereotype.Service;
@@ -25,13 +27,13 @@ public class BlogSearchApiService implements BlogSearchApiClient {
         try {
             KakaoSearchBlogResponse response = kakaoApiWebClient.searchBlog(new KakaoSearchBlogRequest(
                 request.getKeyword(),
-                request.getOrdering(),
+                KakaoSortType.getType(request.getSortType()),
                 request.getPage(),
                 request.getSize()
             ));
             return new SearchBlogResponse(
                 request.getKeyword(),
-                request.getOrdering(),
+                request.getSortType(),
                 request.getSize(),
                 request.getPage(),
                 response.getMeta().getTotalCount(),
@@ -45,11 +47,11 @@ public class BlogSearchApiService implements BlogSearchApiClient {
                 request.getKeyword(),
                 request.getPage(),
                 request.getSize(),
-                request.getOrdering()
+                NaverSortType.getType(request.getSortType())
             ));
             return new SearchBlogResponse(
                 request.getKeyword(),
-                request.getOrdering(),
+                request.getSortType(),
                 request.getSize(),
                 request.getPage(),
                 response.getTotal(),
