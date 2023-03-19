@@ -65,7 +65,7 @@ public class KeywordRankingJpaEntity implements DateMetadata {
         this.count = 1L;
     }
 
-    public void count() {
+    public void addCount() {
         this.count++;
     }
 

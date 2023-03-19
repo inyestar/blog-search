@@ -37,7 +37,7 @@ public class KeywordRankingJpaPersistence implements KeywordRankingPersistence {
     @Override
     public void modifyKeywordRanking(Keyword keyword) {
         KeywordRankingJpaEntity entity = keywordRankingJpaRepository.findByKeywordHash(keyword.getHash()).orElseThrow(new SearchBlogException("키워드 횟수 정보를 찾을 수 없습니다."));
-        entity.count();
+        entity.addCount();
     }
 
     @Override

@@ -1,22 +1,35 @@
 package org.inyestar.blog.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.inyestar.blog.application.service.KeywordRankingService;
-import org.inyestar.blog.application.service.dto.TopKeywordResponse;
+import org.inyestar.blog.application.service.KeywordSearchCombineService;
+import org.inyestar.blog.application.service.dto.SearchBlogRequest;
+import org.inyestar.blog.application.service.dto.SearchBlogResponse;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 @RestController
-@RequestMapping("/api/v1/search-blog")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
+@Validated
 public class SearchBlogController {
-    private final KeywordRankingService keywordRankingService;
-
-    @GetMapping("/keyword/top-10")
-    public List<TopKeywordResponse> findTop10() {
-        return keywordRankingService.findTop10();
+    private final KeywordSearchCombineService keywordSearchCombineService;
+    @GetMapping("/search/blog")
+    public SearchBlogResponse searchBlog(
+        @NotBlank(message = "검색어는 필수 값 입니다") @RequestParam String keyword,
+        @RequestParam(required = false) Integer size,
+        @RequestParam(required = false) Integer page,
+        @RequestParam(required = false) String sort) {
+        return keywordSearchCombineService.search(new SearchBlogRequest(
+            keyword,
+            sort,
+            size,
+            page
+        ));
     }
+
 }
