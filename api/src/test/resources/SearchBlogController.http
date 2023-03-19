@@ -1,0 +1,3 @@
+### 블로그 검색
+GET {{host}}/api/v1/search/blog?keyword=맛집&size=5&page=0&sort=ACCURACY
+Content-Type: application/json

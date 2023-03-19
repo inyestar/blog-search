@@ -1,0 +1,3 @@
+### 블로그 검색어 TOP 10 조회
+GET {{host}}/api/v1/keyword/top-10
+Content-Type: application/json
