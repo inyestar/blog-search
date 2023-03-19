@@ -11,4 +11,13 @@ public class KeywordRanking {
     private Long count;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    public static KeywordRanking sample() {
+        return new KeywordRanking(
+            Keyword.sample(),
+            1000L,
+            LocalDateTime.now(),
+            LocalDateTime.now()
+        );
+    }
 }

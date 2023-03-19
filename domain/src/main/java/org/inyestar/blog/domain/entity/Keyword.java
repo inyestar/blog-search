@@ -17,4 +17,11 @@ public class Keyword {
         this.input = keyword;
         this.hash = HashUtil.hash(StringUtils.deleteWhitespace(keyword));
     }
+
+    public static Keyword sample() {
+        return new Keyword(
+            "keyword",
+            HashUtil.hash(StringUtils.deleteWhitespace("keyword"))
+        );
+    }
 }
