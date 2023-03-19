@@ -1,13 +1,13 @@
-package org.inyestar.blog.persistence.ranking;
+package org.inyestar.blog.persistence.jpa.ranking;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
-import org.inyestar.blog.persistence.common.CreatedAtListener;
-import org.inyestar.blog.persistence.common.DateMetadata;
-import org.inyestar.blog.persistence.common.UpdatedAtAtListener;
+import org.inyestar.blog.persistence.jpa.ranking.common.CreatedAtListener;
+import org.inyestar.blog.persistence.jpa.ranking.common.DateMetadata;
+import org.inyestar.blog.persistence.jpa.ranking.common.UpdatedAtAtListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

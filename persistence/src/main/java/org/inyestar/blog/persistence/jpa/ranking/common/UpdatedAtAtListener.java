@@ -1,4 +1,4 @@
-package org.inyestar.blog.persistence.common;
+package org.inyestar.blog.persistence.jpa.ranking.common;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;

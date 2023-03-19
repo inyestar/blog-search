@@ -1,2 +1,4 @@
-package org.inyestar.blog.application.port.client;public interface KakaoClient {
+package org.inyestar.blog.application.port.client;
+
+public interface KakaoApiClient {
 }

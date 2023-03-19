@@ -1,4 +1,4 @@
-package org.inyestar.blog.persistence.ranking;
+package org.inyestar.blog.persistence.jpa.ranking;
 
 import lombok.RequiredArgsConstructor;
 import org.inyestar.blog.application.port.jpa.KeywordRankingPersistence;

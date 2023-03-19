@@ -1,4 +1,4 @@
-package org.inyestar.blog.persistence.common;
+package org.inyestar.blog.persistence.jpa.ranking.common;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
