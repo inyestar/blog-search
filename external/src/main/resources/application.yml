@@ -1,7 +1,9 @@
 auth:
   rest-api:
     kakao:
+      host: https://dapi.kakao.com
       key: 123123
     naver:
+      host: https://openapi.naver.com
       client-id: 12312
       client-secret: 123123
