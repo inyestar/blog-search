@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class NaverSearchBlogResponse {
     private Long total;
     private Long start;
     private Long display;
-    private List<Item> items;
+    private List<Item> items = new ArrayList<>();
 
     @Getter
     @NoArgsConstructor

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class KakaoSearchBlogResponse {
-    private Meta meta;
-    private List<Document> documents;
+    private Meta meta = new Meta();
+    private List<Document> documents = new ArrayList<>();
 
     @Getter
     @NoArgsConstructor
