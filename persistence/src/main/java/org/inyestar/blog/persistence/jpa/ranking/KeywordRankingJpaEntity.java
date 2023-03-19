@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
+import org.inyestar.blog.domain.entity.Keyword;
+import org.inyestar.blog.domain.entity.KeywordRanking;
 import org.inyestar.blog.persistence.jpa.ranking.common.CreatedAtListener;
 import org.inyestar.blog.persistence.jpa.ranking.common.DateMetadata;
 import org.inyestar.blog.persistence.jpa.ranking.common.UpdatedAtAtListener;
@@ -56,4 +58,23 @@ public class KeywordRankingJpaEntity implements DateMetadata {
     @Column(name = "updatedAt", nullable = false, columnDefinition = "TIMESTAMP")
     @Comment("데이터 수정일")
     private LocalDateTime updatedAt;
+
+    public KeywordRankingJpaEntity(Keyword keyword) {
+        this.keywordHash = keyword.getHash();
+        this.keyword = keyword.getInput();
+        this.count = 1L;
+    }
+
+    public void count() {
+        this.count++;
+    }
+
+    public KeywordRanking toDomain() {
+        return new KeywordRanking(
+            new Keyword(keyword, keywordHash),
+            count,
+            createdAt,
+            updatedAt
+        );
+    }
 }

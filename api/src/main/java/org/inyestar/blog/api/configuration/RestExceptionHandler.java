@@ -10,4 +10,5 @@ public class RestExceptionHandler {
     public final ResponseEntity<Object> handleInternalServerError(RuntimeException ex) {
         return ResponseEntity.internalServerError().build();
     }
+
 }
