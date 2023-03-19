@@ -1,4 +1,5 @@
 rootProject.name = 'search-blog'
 include 'persistence'
 include 'domain'
+include 'rest-api'
 
