@@ -13,4 +13,13 @@ public class SearchBlogRequest {
     private SortType sortType;
     private Integer size;
     private Integer page;
+
+    public static SearchBlogRequest sample() {
+        return new SearchBlogRequest(
+            "keyword",
+            SortType.ACCURACY,
+            10,
+            1
+        );
+    }
 }
