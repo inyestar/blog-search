@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
 import org.inyestar.blog.persistence.common.CreatedAtListener;
-import org.inyestar.blog.persistence.common.JpaEntityDate;
+import org.inyestar.blog.persistence.common.DateMetadata;
 import org.inyestar.blog.persistence.common.UpdatedAtAtListener;
 
 import javax.persistence.*;
@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
     CreatedAtListener.class,
     UpdatedAtAtListener.class
 })
-public class KeywordRankingJpaEntity implements JpaEntityDate {
+public class KeywordRankingJpaEntity implements DateMetadata {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "keyword_ranking_id_seq")
     @SequenceGenerator(name = "keyword_ranking_id_seq", sequenceName = "keyword_ranking_id_seq", allocationSize = 1)

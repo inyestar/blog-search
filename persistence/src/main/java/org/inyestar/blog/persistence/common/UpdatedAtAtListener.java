@@ -2,11 +2,12 @@ package org.inyestar.blog.persistence.common;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import java.time.LocalDateTime;
 
 public class UpdatedAtAtListener {
     @PreUpdate
     @PrePersist
-    public void setUpdatedAt() {
-//        this.updatedAt = LocalDateTime.now();
+    public void setUpdatedAt(DateMetadata entity) {
+        entity.setUpdatedAt(LocalDateTime.now());
     }
 }
