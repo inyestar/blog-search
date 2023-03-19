@@ -63,8 +63,8 @@ public class BlogSearchApiService implements BlogSearchApiClient {
         }
     }
 
-    private SearchBlogResponse.Result convert(KakaoSearchBlogResponse.Document document) {
-        return new SearchBlogResponse.Result(
+    private SearchBlogResponse.BlogInfo convert(KakaoSearchBlogResponse.Document document) {
+        return new SearchBlogResponse.BlogInfo(
             document.getTitle(),
             document.getContents(),
             document.getUrl(),
@@ -73,8 +73,8 @@ public class BlogSearchApiService implements BlogSearchApiClient {
         );
     }
 
-    private SearchBlogResponse.Result convert(NaverSearchBlogResponse.Item item) {
-        return new SearchBlogResponse.Result(
+    private SearchBlogResponse.BlogInfo convert(NaverSearchBlogResponse.Item item) {
+        return new SearchBlogResponse.BlogInfo(
             item.getTitle(),
             item.getDescription(),
             item.getBloggerlink(),
