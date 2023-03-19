@@ -31,7 +31,7 @@ public class KeywordRankingJpaPersistence implements KeywordRankingPersistence {
 
     @Override
     public void addKeywordRanking(Keyword keyword) {
-        KeywordRankingJpaEntity entity = keywordRankingJpaRepository.save(new KeywordRankingJpaEntity(keyword));
+        keywordRankingJpaRepository.save(new KeywordRankingJpaEntity(keyword));
     }
 
     @Override
