@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.inyestar.blog.domain.constants.SortType;
+import org.inyestar.blog.domain.entity.Blog;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class SearchBlogResponse {
         private String postUrl;
         private String blogName;
         private String thumbnailUrl;
+        private LocalDateTime postedAt;
 
         public static BlogInfo sample() {
             return new BlogInfo(
@@ -46,8 +49,18 @@ public class SearchBlogResponse {
                 "내용입니다",
                 "https://post.com",
                 "꿈을 꾸는 사람",
-                "https://thumbnail.jpeg"
+                "https://thumbnail.jpeg",
+                LocalDateTime.now()
             );
+        }
+
+        public BlogInfo(Blog blog) {
+            this.postTitle = blog.getPostTitle();
+            this.postContents = blog.getPostContents();
+            this.postUrl = blog.getPostUrl();
+            this.blogName = blog.getBlogName();
+            this.thumbnailUrl = blog.getThumbnailUrl();
+            this.postedAt = blog.getPostDate();
         }
     }
 }

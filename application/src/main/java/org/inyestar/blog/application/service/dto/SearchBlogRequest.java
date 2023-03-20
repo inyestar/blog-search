@@ -10,14 +10,14 @@ import org.inyestar.blog.domain.constants.SortType;
 @NoArgsConstructor
 public class SearchBlogRequest {
     private String keyword;
-    private SortType sortType;
+    private String sort;
     private Integer size;
     private Integer page;
 
     public static SearchBlogRequest sample() {
         return new SearchBlogRequest(
             "keyword",
-            SortType.ACCURACY,
+            SortType.ACCURACY.name(),
             10,
             1
         );

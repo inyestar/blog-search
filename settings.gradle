@@ -4,4 +4,5 @@ include 'domain'
 include 'external'
 include 'application'
 include 'api'
+include 'boot'
 

@@ -2,9 +2,10 @@ package org.inyestar.blog.external.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.inyestar.blog.application.port.client.BlogSearchApiClient;
-import org.inyestar.blog.application.service.dto.SearchBlogRequest;
-import org.inyestar.blog.application.service.dto.SearchBlogResponse;
+import org.inyestar.blog.domain.entity.Blog;
+import org.inyestar.blog.domain.port.client.BlogSearchApiClient;
+import org.inyestar.blog.domain.port.dto.BlogRequest;
+import org.inyestar.blog.domain.port.dto.BlogResponse;
 import org.inyestar.blog.external.client.kakao.KakaoApiWebClient;
 import org.inyestar.blog.external.client.kakao.contants.KakaoSortType;
 import org.inyestar.blog.external.client.kakao.dto.KakaoSearchBlogRequest;
@@ -13,6 +14,7 @@ import org.inyestar.blog.external.client.naver.NaverApiWebClient;
 import org.inyestar.blog.external.client.naver.contants.NaverSortType;
 import org.inyestar.blog.external.client.naver.dto.NaverSearchBlogRequest;
 import org.inyestar.blog.external.client.naver.dto.NaverSearchBlogResponse;
+import org.inyestar.blog.external.utils.DateConvertUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
@@ -25,7 +27,7 @@ public class BlogSearchApiService implements BlogSearchApiClient {
     private final NaverApiWebClient naverApiWebClient;
 
     @Override
-    public SearchBlogResponse searchBlog(SearchBlogRequest request) {
+    public BlogResponse searchBlog(BlogRequest request) {
         try {
             KakaoSearchBlogResponse response = kakaoApiWebClient.searchBlog(new KakaoSearchBlogRequest(
                 request.getKeyword(),
@@ -33,11 +35,7 @@ public class BlogSearchApiService implements BlogSearchApiClient {
                 request.getPage(),
                 request.getSize()
             ));
-            return new SearchBlogResponse(
-                request.getKeyword(),
-                request.getSortType(),
-                request.getSize(),
-                request.getPage(),
+            return new BlogResponse(
                 response.getMeta().getTotalCount(),
                 response.getDocuments()
                     .stream()
@@ -52,11 +50,7 @@ public class BlogSearchApiService implements BlogSearchApiClient {
                 request.getSize(),
                 NaverSortType.getType(request.getSortType())
             ));
-            return new SearchBlogResponse(
-                request.getKeyword(),
-                request.getSortType(),
-                request.getSize(),
-                request.getPage(),
+            return new BlogResponse(
                 response.getTotal(),
                 response.getItems()
                     .stream()
@@ -66,23 +60,25 @@ public class BlogSearchApiService implements BlogSearchApiClient {
         }
     }
 
-    private SearchBlogResponse.BlogInfo convert(KakaoSearchBlogResponse.Document document) {
-        return new SearchBlogResponse.BlogInfo(
+    private Blog convert(KakaoSearchBlogResponse.Document document) {
+        return new Blog(
             document.getTitle(),
             document.getContents(),
             document.getUrl(),
             document.getBlogname(),
-            document.getThumbnail()
+            document.getThumbnail(),
+            DateConvertUtil.convertKakaoDate(document.getDatetime())
         );
     }
 
-    private SearchBlogResponse.BlogInfo convert(NaverSearchBlogResponse.Item item) {
-        return new SearchBlogResponse.BlogInfo(
+    private Blog convert(NaverSearchBlogResponse.Item item) {
+        return new Blog(
             item.getTitle(),
             item.getDescription(),
             item.getBloggerlink(),
             item.getBloggername(),
-            null
+            null,
+            DateConvertUtil.convertNaverDate(item.getPostdate())
         );
     }
 }

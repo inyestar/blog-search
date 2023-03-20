@@ -1,16 +1,15 @@
 package org.inyestar.blog.persistence.jpa.ranking;
 
 import lombok.RequiredArgsConstructor;
-import org.inyestar.blog.application.port.jpa.KeywordRankingPersistence;
 import org.inyestar.blog.domain.entity.Keyword;
 import org.inyestar.blog.domain.entity.KeywordRanking;
 import org.inyestar.blog.domain.exception.SearchBlogException;
+import org.inyestar.blog.domain.port.jpa.KeywordRankingPersistence;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,12 +20,6 @@ public class KeywordRankingJpaPersistence implements KeywordRankingPersistence {
     @Override
     public boolean existsByKeyword(Keyword keyword) {
         return keywordRankingJpaRepository.existsByKeywordHash(keyword.getHash());
-    }
-
-    @Override
-    public Optional<KeywordRanking> getKeywordRanking(Keyword keyword) {
-        return keywordRankingJpaRepository.findByKeywordHash(keyword.getHash())
-            .map(KeywordRankingJpaEntity::toDomain);
     }
 
     @Override

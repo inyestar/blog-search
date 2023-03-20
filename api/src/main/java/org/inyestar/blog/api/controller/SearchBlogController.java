@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.inyestar.blog.application.service.KeywordSearchCombineService;
 import org.inyestar.blog.application.service.dto.SearchBlogRequest;
 import org.inyestar.blog.application.service.dto.SearchBlogResponse;
-import org.inyestar.blog.domain.constants.SortType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +24,7 @@ public class SearchBlogController {
         @NotBlank(message = "검색어는 필수 값 입니다") @RequestParam String keyword,
         @Positive(message = "페이지 사이즈는 0보다 커야 합니다.") @RequestParam(required = false) Integer size,
         @Positive(message = "페이지 번호는 0보다 커야 합니다.") @RequestParam(required = false) Integer page,
-        @RequestParam(required = false) SortType sort) {
+        @RequestParam(required = false) String sort) {
         return keywordSearchCombineService.search(new SearchBlogRequest(
             keyword,
             sort,

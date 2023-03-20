@@ -1,10 +1,10 @@
 package org.inyestar.blog.application.service;
 
 import lombok.RequiredArgsConstructor;
-import org.inyestar.blog.application.port.jpa.KeywordRankingPersistence;
 import org.inyestar.blog.application.service.dto.TopKeywordResponse;
 import org.inyestar.blog.domain.entity.Keyword;
 import org.inyestar.blog.domain.entity.KeywordRanking;
+import org.inyestar.blog.domain.port.jpa.KeywordRankingPersistence;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
