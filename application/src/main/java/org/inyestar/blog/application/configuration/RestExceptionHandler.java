@@ -1,4 +1,4 @@
-package org.inyestar.blog.api.configuration;
+package org.inyestar.blog.application.configuration;
 
 import org.inyestar.blog.domain.exception.SearchBlogException;
 import org.springframework.http.ResponseEntity;
