@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -22,8 +23,8 @@ public class SearchBlogController {
     @GetMapping("/search/blog")
     public SearchBlogResponse searchBlog(
         @NotBlank(message = "검색어는 필수 값 입니다") @RequestParam String keyword,
-        @RequestParam(required = false) Integer size,
-        @RequestParam(required = false) Integer page,
+        @Positive(message = "페이지 사이즈는 0보다 커야 합니다.") @RequestParam(required = false) Integer size,
+        @Positive(message = "페이지 번호는 0보다 커야 합니다.") @RequestParam(required = false) Integer page,
         @RequestParam(required = false) SortType sort) {
         return keywordSearchCombineService.search(new SearchBlogRequest(
             keyword,
