@@ -16,7 +16,7 @@ public class DateConvertUtil {
 
     public static LocalDateTime convertNaverDate(String dateSource) {
         return LocalDateTime.of(
-            LocalDate.parse(dateSource, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+            LocalDate.parse(dateSource, DateTimeFormatter.ofPattern("yyyyMMdd")),
             LocalTime.MIDNIGHT
         );
     }
