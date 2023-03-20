@@ -50,12 +50,12 @@ public class KeywordRankingJpaEntity implements DateMetadata {
     private Long count;
 
     @Setter
-    @Column(name = "createdAt", nullable = false, columnDefinition = "TIMESTAMP")
+    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP")
     @Comment("데이터 생성일")
     private LocalDateTime createdAt;
 
     @Setter
-    @Column(name = "updatedAt", nullable = false, columnDefinition = "TIMESTAMP")
+    @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP")
     @Comment("데이터 수정일")
     private LocalDateTime updatedAt;
 
