@@ -16,8 +16,4 @@ public class RestExceptionHandler {
     public final ResponseEntity<Object> handleBadRequest(SearchBlogException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
-
-    // TODO: validation 에러 핸들링 -> 메시지 포멧 변경 필요
-    // kakao 실패 시 naver 확인
-    // kakao totalCount 안나오는 이슈 확인
 }
