@@ -1,5 +1,6 @@
 package org.inyestar.blog.external.client.kakao.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,9 @@ public class KakaoSearchBlogResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Meta {
+        @JsonProperty("total_count")
         private Long totalCount;
+        @JsonProperty("pageable_count")
         private Long pageableCount;
         private boolean isEnd;
 
