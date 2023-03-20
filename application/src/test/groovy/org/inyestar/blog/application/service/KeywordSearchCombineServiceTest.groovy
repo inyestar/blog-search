@@ -1,8 +1,8 @@
 package org.inyestar.blog.application.service
 
-import org.inyestar.blog.application.port.client.BlogSearchApiClient
 import org.inyestar.blog.application.service.dto.SearchBlogRequest
-import org.inyestar.blog.application.service.dto.SearchBlogResponse
+import org.inyestar.blog.domain.port.client.BlogSearchApiClient
+import org.inyestar.blog.domain.port.dto.BlogResponse
 import spock.lang.Specification
 
 class KeywordSearchCombineServiceTest extends Specification {
@@ -19,6 +19,6 @@ class KeywordSearchCombineServiceTest extends Specification {
 
         then:
         1 * keywordRankingService.putKeywordRanking(_)
-        1 * blogSearchApiClient.searchBlog(_) >> SearchBlogResponse.sample()
+        1 * blogSearchApiClient.searchBlog(_) >> BlogResponse.sample()
     }
 }

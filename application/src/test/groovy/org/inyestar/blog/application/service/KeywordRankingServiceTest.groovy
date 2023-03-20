@@ -1,8 +1,9 @@
 package org.inyestar.blog.application.service
 
-import org.inyestar.blog.application.port.jpa.KeywordRankingPersistence
+
 import org.inyestar.blog.domain.entity.Keyword
 import org.inyestar.blog.domain.entity.KeywordRanking
+import org.inyestar.blog.domain.port.jpa.KeywordRankingPersistence
 import spock.lang.Specification
 
 class KeywordRankingServiceTest extends Specification {

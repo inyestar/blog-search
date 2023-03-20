@@ -14,4 +14,12 @@ public class BlogRequest {
     private Integer size;
     private Integer page;
 
+    public static BlogRequest sample() {
+        return new BlogRequest(
+            "keyword",
+            SortType.ACCURACY,
+            10,
+            1
+        );
+    }
 }
