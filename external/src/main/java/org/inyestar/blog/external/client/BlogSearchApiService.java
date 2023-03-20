@@ -1,6 +1,7 @@
 package org.inyestar.blog.external.client;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.inyestar.blog.application.port.client.BlogSearchApiClient;
 import org.inyestar.blog.application.service.dto.SearchBlogRequest;
 import org.inyestar.blog.application.service.dto.SearchBlogResponse;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BlogSearchApiService implements BlogSearchApiClient {
@@ -43,6 +45,7 @@ public class BlogSearchApiService implements BlogSearchApiClient {
                     .collect(Collectors.toList())
             );
         } catch (RuntimeException e) {
+            log.error("failed to get result from kakao api - {}", e.getMessage(), e);
             NaverSearchBlogResponse response = naverApiWebClient.searchBlog(new NaverSearchBlogRequest(
                 request.getKeyword(),
                 request.getPage(),
