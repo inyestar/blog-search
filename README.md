@@ -51,9 +51,9 @@
   - Request
     - None
   - Response
-    - no : 순위
-    - keyword : 검색어
-    - count : 검색 횟수
+    - no : Integer / 순위
+    - keyword : String / 검색어
+    - count : Long / 검색 횟수
   - Example
   ```json
   GET http://127.0.0.1:8888/api/v1/keyword/top-10
