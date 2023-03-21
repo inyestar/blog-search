@@ -1,5 +1,6 @@
 # 블로그 검색 서비스
 ## 설명
+- 실행 명령어 : java -jar search-blog-0.0.1-SNAPSHOT.jar
 - 포트 : 8888
 - [jar 다운로드 링크]()
 ## API 명세
