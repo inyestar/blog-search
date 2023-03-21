@@ -1,5 +1,7 @@
 # 블로그 검색 서비스
-[jar 다운로드 링크]()
+## 설명
+- 포트 : 8888
+- [jar 다운로드 링크]()
 ## API 명세
 - 블로그 검색 API
   - GET /api/v1/search/blog??keyword={keyword}&size={size}&page={page}&sort={sort}
